@@ -1,0 +1,27 @@
+{
+  "name": "camera-permissions-ios",
+  "version": "1.0.0",
+  "description": "Cordova plugin to check camera permissions on ios",
+  "cordova": {
+    "id": "camera-permissions-ios",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusfravo/camera-permissions-ios.git"
+  },
+  "keywords": [
+    "ios",
+    "camera",
+    "permissions",
+    "cordova"
+  ],
+  "author": "Thavs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gusfravo/camera-permissions-ios/issues"
+  },
+  "homepage": "https://github.com/gusfravo/camera-permissions-ios#readme"
+}
