@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="camera-permissions-ios" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>CameraPermissionsIos</name>
-    <js-module name="CameraPermissionsIos" src="www/cameraPermissionsIos.js">
-        <clobbers target="camera.permissions.ios" />
-    </js-module>
     <platform name="ios">
+        <js-module name="cameraPermissionsIos" src="www/cameraPermissionsIos.js">
+            <clobbers target="cameraPermissionsIos" />
+        </js-module>
         <config-file parent="/*" target="config.xml">
             <feature name="CameraPermissionsIos">
                 <param name="ios-package" value="CameraPermissionsIos" />
