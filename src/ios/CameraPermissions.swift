@@ -1,11 +1,11 @@
 import AVFoundation
 
-@objc(CameraPermissionsIos) 
+@objc(CameraPermissionsIos)
 class CameraPermissionsIos : CDVPlugin{
 
     // MARK: Properties
     var pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR)
-    var isCameraPermission:Bool = false
+    var isCameraPermission:String = "denied"
 
 
     //This method is called when the plugin is initialized; plugin setup methods got here
@@ -20,18 +20,18 @@ class CameraPermissionsIos : CDVPlugin{
         
         switch(status){
         case .authorized:
-            isCameraPermission = true
+            isCameraPermission = "granted";
         case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
-              if granted {
-                print("granted")
-                  self.isCameraPermission = true
-              }
-              else {
-                print("not granted")
-                  self.isCameraPermission = false
-              }
-            })
+            // AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+            //   if granted {
+            //     print("granted")
+            //       self.isCameraPermission = true
+            //   }
+            //   else {
+            //     print("not granted")
+            //       self.isCameraPermission = false
+            //   }
+            // })
             /*var success =  AVCaptureDevice.requestAccess(for: .video)
             if success {
                 print("Permission granted, proceed")
@@ -40,20 +40,42 @@ class CameraPermissionsIos : CDVPlugin{
                 print("Permission denied")
                 isCameraPermission = false
             }*/
-            //isCameraPermission = true
+            isCameraPermission = "notDetermined"
         case .denied:
-            isCameraPermission = false
+            isCameraPermission = "denied"
         case .restricted:
-            isCameraPermission = false
+            isCameraPermission = "denied"
             
             
         @unknown default:
-            isCameraPermission = false
+            isCameraPermission = "denied"
         }
 
         pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: isCameraPermission)
          self.commandDelegate!.send(pluginResult,callbackId: command.callbackId)
     }
+
+    /**
+    This method request access to camera permissions on ios*/
+
+    @objc(requestCameraPermission:)
+    func requestCameraPermission(_ command: CDVInvokedUrlCommand) {
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: { [self] (granted: Bool) in
+            if granted {
+                print("granted")
+                isCameraPermission = "granted"
+                pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: isCameraPermission)
+                 self.commandDelegate!.send(pluginResult,callbackId: command.callbackId)
+            }
+            else {
+                print("not granted")
+                isCameraPermission = "denied"
+                pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: isCameraPermission)
+                 self.commandDelegate!.send(pluginResult,callbackId: command.callbackId)
+            }
+        })
+    }
+
 
 
 

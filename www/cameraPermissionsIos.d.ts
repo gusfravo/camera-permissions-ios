@@ -10,4 +10,9 @@ export interface CameraPermissionsIos {
         errorCallback: () => void
       ) => void;
 
+    requestCameraPermission: (
+        successCallback: (status: CameraPermissionStatus) => void,
+        errorCallback: () => void
+    ) => void;
+
 }
