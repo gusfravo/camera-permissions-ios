@@ -1,12 +1,12 @@
-function CameraPermission() {}
+var cameraPermission= {
+    getCameraPermission: function(successCallback, errorCallback) {
+        Cordova.exec(successCallback, errorCallback, 'CameraPermissionsIos', 'getCameraPermission', []);
+    }
+}
 
-CameraPermission.prototype = {
-    getCameraPermission: function({}, successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, 'CameraPermissionsIos', 'getCameraPermission', []);
-    },
-};
 
-module.exports = new CameraPermission();
+
+module.exports = cameraPermission;
 
 // var exec = require('cordova/exec');
 
