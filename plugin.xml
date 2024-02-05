@@ -3,7 +3,7 @@
     <name>CameraPermissionsIos</name>
     <platform name="ios">
         <js-module name="cameraPermissionsIos" src="www/cameraPermissionsIos.js">
-            <clobbers target="cameraPermissionsIos" />
+            <clobbers target="cordova.plugins.cameraPermissionsIos" />
         </js-module>
         <config-file parent="/*" target="config.xml">
             <feature name="CameraPermissionsIos">

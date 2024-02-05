@@ -3,7 +3,7 @@ export interface CameraPermissionStatus  {
     isCameraPermission:boolean
 }
 
-export interface CameraPermission {
+export interface CameraPermissionsIos {
 
     getCameraPermission: (
         successCallback: (status: CameraPermissionStatus) => void,
