@@ -10,7 +10,7 @@
                 <param name="ios-package" value="CameraPermissionsIos" />
             </feature>
         </config-file>
-        <!-- <source-file src="src/ios/CameraPermissionsIos.m" /> -->
+        
         <source-file src="src/ios/CameraPermissions.swift" />
 
     </platform>

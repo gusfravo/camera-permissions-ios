@@ -6,9 +6,3 @@ var cameraPermissionsIos = {
 
 
 module.exports =  cameraPermissionsIos;
-
-// var exec = require('cordova/exec');
-
-// exports.getCameraPermission = function (arg0, success, error) {
-//     exec(success, error, 'CameraPermissionsIos', 'getCameraPermission', [arg0]);
-// };
