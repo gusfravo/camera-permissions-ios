@@ -30,7 +30,7 @@ permissions.requestCameraPermission({}, successCallback, errorCallback);
 
 ## Examples
 ```js
-var permissions = cordova.plugins.permissions;
+var permissions = cordova.plugins.cameraPermissionsIos;
 ```
 
 #### Quick check
